@@ -1,0 +1,10 @@
+.listItem {
+  padding: 10px;
+  color: var(--blue);
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  &__isOdd {
+    background-color: var(--light-blue);
+  }
+}

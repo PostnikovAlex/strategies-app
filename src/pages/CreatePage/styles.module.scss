@@ -1,0 +1,35 @@
+.content {
+  width: 30%;
+  padding: 10px;
+}
+.heading {
+  font-size: 42px;
+  color: var(--font);
+}
+.text {
+  font-size: 24px;
+  color: var(--blue);
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  position: relative;
+  label {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  input {
+    border: 2px solid var(--blue-transparent);
+    padding: 5px;
+    max-width: 330px;
+    border-radius: 3px;
+  }
+}
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

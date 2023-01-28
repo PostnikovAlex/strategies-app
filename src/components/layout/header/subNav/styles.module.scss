@@ -1,0 +1,14 @@
+.subNav {
+  width: 100%;
+  min-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  a {
+    background-color: var(--blue);
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}

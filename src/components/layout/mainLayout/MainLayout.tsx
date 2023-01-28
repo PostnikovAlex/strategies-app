@@ -1,0 +1,14 @@
+import { FC, PropsWithChildren } from 'react';
+
+import styles from './mainLayout.module.scss';
+type Props = PropsWithChildren<{}>;
+
+const MainLayout: FC<Props> = props => {
+  return (
+    <>
+      <div className={styles.appContentWrapper}>{props.children}</div>
+    </>
+  );
+};
+
+export default MainLayout;

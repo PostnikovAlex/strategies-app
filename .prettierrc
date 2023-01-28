@@ -1,0 +1,29 @@
+{
+  "arrowParens": "avoid",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "printWidth": 140,
+  "overrides": [
+    {
+      "files": [
+        "*.html",
+        "*.svg",
+        "*.css"
+      ],
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": [
+        "*.json",
+        ".stylelintrc"
+      ],
+      "options": {
+        "tabWidth": 2,
+        "parser": "json"
+      }
+    }
+  ]
+}
