@@ -1,6 +1,19 @@
 .content {
   width: 30%;
   padding: 10px;
+  .dateContainer {
+    display: flex;
+    flex-direction: row;
+    max-width: 330px;
+    input {
+      max-width: 160px;
+      margin-right: 5px;
+      border: 2px solid var(--blue-transparent);
+      padding: 5px;
+      border-radius: 3px;
+      color: var(--blue-transparent);
+    }
+  }
 }
 .heading {
   font-size: 42px;
@@ -14,7 +27,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  padding-left: 15px;
   position: relative;
   label {
     font-size: 14px;

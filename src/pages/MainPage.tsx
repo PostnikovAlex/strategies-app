@@ -36,15 +36,14 @@ const MainPage: FC = props => {
       <MainLayout>
         <StrategiesList>
           {strategies.map((strategy: any, idx: number) => (
-            <>
-              <StrategyListItem
-                id={strategy.id}
-                removeStrategy={handleRemoveStrategy}
-                isOdd={idx % 2 === 0}
-                capital={strategy.capital}
-                name={strategy.name}
-              />
-            </>
+            <StrategyListItem
+              key={strategy.id}
+              id={strategy.id}
+              removeStrategy={handleRemoveStrategy}
+              isOdd={idx % 2 === 0}
+              capital={strategy.capital}
+              name={strategy.name}
+            />
           ))}
         </StrategiesList>
       </MainLayout>

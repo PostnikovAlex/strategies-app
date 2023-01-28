@@ -1,0 +1,25 @@
+.button {
+  background-color: var(--blue);
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--blue);
+}
+.light {
+  background-color: white;
+  color: var(--blue);
+  &:hover {
+    color: var(--blue);
+    background-color: white;
+  }
+}
+.lazure {
+  background-color: var(--blue);
+  color: white;
+  &:hover {
+    color: white;
+    background-color: var(--blue);
+  }
+}

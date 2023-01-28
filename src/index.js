@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 // pages
 import MainPage from './pages/MainPage';
 import CreatePage from './pages/CreatePage/CreatePage';
-import SelectStrategyPage from './pages/SelectStrategyPage';
+import SelectStrategyPage from './pages/selectPage/SelectStrategyPage';
 
 const router = createBrowserRouter([
   {

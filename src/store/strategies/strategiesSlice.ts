@@ -48,6 +48,7 @@ export const counterSlice = createSlice({
   },
   reducers: {
     addStrategy: (state, action) => {
+      console.log(action.payload);
       state.strategies.push({
         id: generateid(),
         name: action.payload.name,
