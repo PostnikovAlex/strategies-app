@@ -1,4 +1,6 @@
-## Available Scripts
+Before start, install packages:
+
+npm i
 
 In the project directory, you can run:
 
