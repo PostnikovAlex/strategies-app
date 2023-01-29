@@ -9,15 +9,11 @@ import StrategyListItem from '../components/list/item/StrategyListItem';
 import Header from '../components/layout/header/Header';
 import SubNav from '../components/layout/header/subNav/SubNav';
 import { Link } from 'react-router-dom';
-type Istate = {
-  strategies: {
-    strategies: Array<Istrategy>;
-  };
-};
-
+import { fetchStrategies } from '../api/api';
+import { useEffect } from 'react';
+import { useGetStrategies } from 'hooks/useGetStrategies';
 const MainPage: FC = props => {
-  // TODO: strategies.strategies
-  const strategies = useSelector((state: Istate) => state.strategies.strategies);
+  const strategies = useGetStrategies();
   const dispatch = useDispatch();
   const handleRemoveStrategy = (id: any) => {
     dispatch(removeStrategy(id));

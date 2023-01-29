@@ -12,6 +12,7 @@ import { addStrategy } from 'store/strategies/strategiesSlice';
 import { Istrategy } from 'store/strategies/types';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+
 interface Iprefill {
   name: string;
   capital: string;
