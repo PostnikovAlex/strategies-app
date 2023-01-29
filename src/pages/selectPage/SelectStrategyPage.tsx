@@ -17,7 +17,7 @@ type Istate = {
 const SelectStrategyPage: FC = props => {
   const strategies = useSelector((state: Istate) => state.strategies.strategies);
   const navigate = useNavigate();
-  const handleStrategySelect = (strategy: any) => {
+  const handleStrategySelect = (strategy: Istrategy) => {
     const toLocalStorage = JSON.stringify({
       name: strategy.name,
       capital: strategy.capital
@@ -38,7 +38,7 @@ const SelectStrategyPage: FC = props => {
       />
       <MainLayout>
         <StrategiesList>
-          {strategies.map((strategy: any, idx: number) => (
+          {strategies.map((strategy: Istrategy, idx: number) => (
             <div key={strategy.id} onClick={() => handleStrategySelect(strategy)}>
               <StrategyListItem noDelete={true} id={strategy.id} isOdd={idx % 2 === 0} capital={strategy.capital} name={strategy.name} />
             </div>

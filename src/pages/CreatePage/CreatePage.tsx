@@ -1,4 +1,4 @@
-import React, { FC, LegacyRef, useRef, useState } from 'react';
+import React, { Dispatch, FC, LegacyRef, SetStateAction, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/layout/header/Header';
 import MainLayout from '../../components/layout/mainLayout';
@@ -12,7 +12,7 @@ import { addStrategy } from 'store/strategies/strategiesSlice';
 import { Istrategy } from 'store/strategies/types';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
+import Input from '../../components/ui/input/Input';
 interface Iprefill {
   name: string;
   capital: string;
@@ -26,12 +26,20 @@ const CreatePage: FC = props => {
       const preFill: string | Iprefill = JSON.parse(localStorage.getItem('fillInForm') || '');
 
       if (typeof preFill === 'object' && refNameInput.current !== null && refCapitalInput.current !== null) {
-        refNameInput.current.value = preFill.name;
-        refCapitalInput.current.value = preFill.capital;
+        const newFields = {
+          ...fields,
+          name: preFill.name,
+          capital: preFill.capital
+        };
+        setFields(newFields);
       }
       localStorage.removeItem('fillInForm');
     }
   }, []);
+
+  useEffect(() => {
+    console.log(fields);
+  }, [fields]);
   const dispatch = useDispatch();
   const handleInput = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const newFields = {
@@ -41,7 +49,7 @@ const CreatePage: FC = props => {
     setFields(newFields);
   };
   const handleDateInput = (date: Date | null, when: string) => {
-    setFields((prevState: any) => ({
+    setFields((prevState: Istrategy) => ({
       ...prevState,
       range: {
         ...prevState.range,
@@ -49,7 +57,7 @@ const CreatePage: FC = props => {
       }
     }));
   };
-  const handleSubmit = (evt: any) => {
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     dispatch(
       addStrategy({
@@ -83,15 +91,25 @@ const CreatePage: FC = props => {
           <h1 className={styles.heading}>Create strategy</h1>
           <p className={styles.text}>Fact: Interes rate on bank cash deposits will never beat inflation</p>
           <form onSubmit={evt => handleSubmit(evt)}>
-            <div className={styles.input}>
-              <label>Strategy name</label>
-              <input ref={refNameInput} required type="text" name="name" onChange={evt => handleInput(evt)} />
-            </div>
-            <div className={styles.input}>
-              <label>Strategy Capital</label>
-              <input ref={refCapitalInput} required type="number" name="capital" onChange={evt => handleInput(evt)} />
-              <DollarSign width="15" height="15" color="var(--blue)" />
-            </div>
+            <Input
+              value={fields.name}
+              setRef={refNameInput}
+              name="name"
+              type="text"
+              label={'Strategy name'}
+              required={true}
+              onChange={evt => handleInput(evt)}
+            />
+            <Input
+              value={fields.capital}
+              icon={<DollarSign width="15" height="15" color="var(--blue)" />}
+              setRef={refCapitalInput}
+              name="capital"
+              type="number"
+              label={'Strategy Capital'}
+              required={true}
+              onChange={evt => handleInput(evt)}
+            />
             <div className={styles.dateContainer}>
               <DatePicker
                 required

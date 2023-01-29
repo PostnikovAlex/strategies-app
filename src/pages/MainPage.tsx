@@ -1,21 +1,19 @@
 import MainLayout from '../components/layout/mainLayout';
 import React, { FC } from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { removeStrategy } from '../store/strategies/strategiesSlice';
-import { Istrategy } from 'store/strategies/types';
 import StrategiesList from '../components/list/StrategiesList';
 import StrategyListItem from '../components/list/item/StrategyListItem';
 import Header from '../components/layout/header/Header';
 import SubNav from '../components/layout/header/subNav/SubNav';
 import { Link } from 'react-router-dom';
-import { fetchStrategies } from '../api/api';
-import { useEffect } from 'react';
 import { useGetStrategies } from 'hooks/useGetStrategies';
-const MainPage: FC = props => {
+import { Istrategy } from 'store/strategies/types';
+const MainPage: FC = () => {
   const strategies = useGetStrategies();
   const dispatch = useDispatch();
-  const handleRemoveStrategy = (id: any) => {
+  const handleRemoveStrategy = (id: string) => {
     dispatch(removeStrategy(id));
   };
   return (
@@ -31,7 +29,7 @@ const MainPage: FC = props => {
       />
       <MainLayout>
         <StrategiesList>
-          {strategies.map((strategy: any, idx: number) => (
+          {strategies.map((strategy: Istrategy, idx: number) => (
             <StrategyListItem
               key={strategy.id}
               id={strategy.id}

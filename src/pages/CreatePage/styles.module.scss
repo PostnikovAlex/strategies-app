@@ -1,20 +1,18 @@
-.content {
-  width: 30%;
-  padding: 10px;
-  .dateContainer {
-    display: flex;
-    flex-direction: row;
-    max-width: 330px;
-    input {
-      max-width: 160px;
-      margin-right: 5px;
-      border: 2px solid var(--blue-transparent);
-      padding: 5px;
-      border-radius: 3px;
-      color: var(--blue-transparent);
-    }
+.dateContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 330px;
+  margin-bottom: 10px;
+  input {
+    max-width: 160px;
+    margin-right: 5px;
+    border: 2px solid var(--blue-transparent);
+    padding: 5px;
+    border-radius: 3px;
+    color: var(--blue-transparent);
   }
 }
+
 .heading {
   font-size: 42px;
   color: var(--font);
@@ -23,23 +21,7 @@
   font-size: 24px;
   color: var(--blue);
 }
-.input {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  position: relative;
-  label {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 5px;
-  }
-  input {
-    border: 2px solid var(--blue-transparent);
-    padding: 8px;
-    max-width: 330px;
-    border-radius: 3px;
-  }
-}
+
 .link {
   display: flex;
   align-items: center;
